@@ -47,3 +47,21 @@ CREATE TABLE treino_exercicios (
     FOREIGN KEY (exercicio_id)
         REFERENCES exercicios(id)   
 );
+
+CREATE TABLE historico_execucoes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    treino_exercicio_id INT NOT NULL,
+
+    data_execucao DATETIME NOT NULL,
+
+    carga_real DECIMAL(5,2),
+
+    repeticoes_realizadas INT,
+
+    observacoes TEXT,
+
+    FOREIGN KEY (treino_exercicio_id)
+        REFERENCES treino_exercicios(id)
+        ON DELETE CASCADE
+);
