@@ -18,3 +18,14 @@ CREATE TABLE exercicios (
     nivel VARCHAR(30),
     gif_url VARCHAR(255)
 );
+
+CREATE TABLE treinos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    aluno_ID INT NOT NULL,
+
+    FOREIGN KEY (aluno_id)
+        REFERENCES alunos(id)
+        ON DELETE CASCADE
+);
