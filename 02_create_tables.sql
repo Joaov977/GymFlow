@@ -29,3 +29,21 @@ CREATE TABLE treinos (
         REFERENCES alunos(id)
         ON DELETE CASCADE
 );
+
+CREATE TABLE treino_exercicios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+
+    treino_id INT NOT NULL,
+    exercicio_id INT NOT NULL,
+
+    series INT NOT NULL,
+    repeticoes INT NOT NULL,
+    carga DECIMAL(5,2),
+
+    FOREIGN KEY (treino_id)
+        REFERENCES treinos(id)
+        ON DELETE CASCADE,
+
+    FOREIGN KEY (exercicio_id)
+        REFERENCES exercicios(id)   
+);
