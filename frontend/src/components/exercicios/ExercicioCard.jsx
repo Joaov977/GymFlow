@@ -9,21 +9,25 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-function ExercicioCard({ exercicio }) {
+function ExercicioCard({
+    exercicio,
+    onEditar,
+    onExcluir
+}) {
 
     return (
 
         <Card
-    elevation={4}
-    sx={{
-        height: "100%",
-        borderRadius: 3,
-        transition: "0.2s",
-        "&:hover": {
-            transform: "translateY(-4px)",
-        },
-    }}
->
+            elevation={4}
+            sx={{
+                height: "100%",
+                borderRadius: 3,
+                transition: "0.2s",
+                "&:hover": {
+                    transform: "translateY(-4px)",
+                },
+            }}
+        >
 
             <CardContent>
 
@@ -58,13 +62,19 @@ function ExercicioCard({ exercicio }) {
                     sx={{ mt: 2 }}
                 >
 
-                    <IconButton color="primary">
+                    <IconButton
+                        color="primary"
+                        onClick={() => onEditar(exercicio)}
+                    >
 
                         <EditIcon />
 
                     </IconButton>
 
-                    <IconButton color="error">
+                    <IconButton
+                        color="error"
+                        onClick={() => onExcluir(exercicio)}
+                    >
 
                         <DeleteIcon />
 
